@@ -2,7 +2,9 @@
 Multi-camera 3D Occupancy Prediction for Autonomous Driving
 
 
-## Demo
+## Demo  
+Demos are a litte bit large and please wait a moment for loading them.
+
 ### Occupancy prediction on nuScenes validation set:
 
 <img src="./assets/demo1.gif" width="800px">

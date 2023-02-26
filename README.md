@@ -3,20 +3,20 @@ Multi-camera 3D Occupancy Prediction for Autonomous Driving
 
 
 ## Demo  
-Demos are a litte bit large and please wait a moment for loading them.
+Demos are a litte bit large and please wait a moment for loading them. If you can not load them, you can click the hyperlink of each demo for the raw video. 
 
-### Occupancy prediction on nuScenes validation set:
+### [Occupancy prediction:](https://cloud.tsinghua.edu.cn/f/5dd268c93e36474d8f64/)
 
 <img src="./assets/demo1.gif" width="800px">
 <img src="./assets/bar.jpg" width="800px">
 
-### Generated dense occupancy labels:
+### [Generated dense occupancy labels:](https://cloud.tsinghua.edu.cn/f/55d79fa1b5fc4fcd9308/)
 <img src="./assets/demo2.gif" width="800px">
 
-### Comparison with other method:
+### [Comparison with other method:](https://cloud.tsinghua.edu.cn/f/1a0be6a660224dbfa28a/)
 <img src="./assets/demo3.gif" width="800px">
 
-### In the wild demo (trained on nuScenes, tested on Beijing street):
+### [In the wild demo](https://cloud.tsinghua.edu.cn/f/021dd2105a3c4251add8/) (trained on nuScenes, tested on Beijing street):
 <img src="./assets/demo4.gif" width="800px">
 
 ## Introduction

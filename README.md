@@ -24,4 +24,4 @@ Towards a more comprehensive and consistent scene reconstruction, in this paper,
 <img src="./assets/pipeline.jpg" width="800px">
 
 ## Related Work
-Welcome to see our lab's another work [TPVFormer](https://github.com/wzzheng/TPVFormer).
+Welcome to see another our lab's work [TPVFormer](https://github.com/wzzheng/TPVFormer).

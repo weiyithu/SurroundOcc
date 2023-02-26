@@ -1,9 +1,12 @@
 # SurroundOcc
 Multi-camera 3D Occupancy Prediction for Autonomous Driving
 
+- We generate dense occupancy ground truth with multi-frame sparse LiDAR points for training and evaluation.
+- We lift image features to the voxel space and progressively upsample them to increase the resolution.
+
 
 ## Demo  
-Demos are a litte bit large and please wait a moment for loading them. If you can not load them, you can click the hyperlink of each demo for the raw video. 
+Demos are a little bit large; please wait a moment to load them. If you cannot load them, you can click the hyperlink of each demo for the raw video. 
 
 ### [Occupancy prediction:](https://cloud.tsinghua.edu.cn/f/5dd268c93e36474d8f64/)
 
@@ -13,7 +16,7 @@ Demos are a litte bit large and please wait a moment for loading them. If you ca
 ### [Generated dense occupancy labels:](https://cloud.tsinghua.edu.cn/f/55d79fa1b5fc4fcd9308/)
 <img src="./assets/demo2.gif" width="800px">
 
-### [Comparison with other method:](https://cloud.tsinghua.edu.cn/f/1a0be6a660224dbfa28a/)
+### [Comparison with other methods:](https://cloud.tsinghua.edu.cn/f/1a0be6a660224dbfa28a/)
 <img src="./assets/demo3.gif" width="800px">
 
 ### [In the wild demo](https://cloud.tsinghua.edu.cn/f/021dd2105a3c4251add8/) (trained on nuScenes, tested on Beijing street):

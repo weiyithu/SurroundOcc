@@ -6,7 +6,7 @@ Multi-camera 3D Occupancy Prediction for Autonomous Driving
 
 
 ## Demo  
-Demos are a little bit large; please wait a moment to load them. If you cannot load them, you can click the hyperlink of each demo for the full-resolution raw video. 
+Demos are a little bit large; please wait a moment to load them. If you cannot load them or feel them blurry, you can click the hyperlink of each demo for the full-resolution raw video. 
 
 ### [Occupancy prediction:](https://cloud.tsinghua.edu.cn/f/5dd268c93e36474d8f64/)
 
@@ -27,6 +27,9 @@ Towards a more comprehensive and consistent scene reconstruction, in this paper,
 
 ## Method 
 <img src="./assets/pipeline.jpg" width="800px">
+
+## Todo
+Paper, code and dataset will be released in March.
 
 ## Related Work
 Welcome to see another our lab's work [TPVFormer](https://github.com/wzzheng/TPVFormer).

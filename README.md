@@ -28,9 +28,11 @@ Towards a more comprehensive and consistent scene reconstruction, in this paper,
 ## Method 
 
 Method Pipeline:
+
 <img src="./assets/pipeline.jpg" width="800px">
 
 Occupancy Ground Truth Generation Pipeline:
+
 <img src="./assets/groundtruth_pipeline.jpg" width="800px">
 
 ## Todo

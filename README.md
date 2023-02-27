@@ -16,7 +16,7 @@ Demos are a little bit large; please wait a moment to load them. If you cannot l
 ### [Generated dense occupancy labels:](https://cloud.tsinghua.edu.cn/f/55d79fa1b5fc4fcd9308/)
 <img src="./assets/demo2.gif" width="800px">
 
-### [Comparison with other methods:](https://cloud.tsinghua.edu.cn/f/1a0be6a660224dbfa28a/)
+### [Comparison with TPVFormer:](https://cloud.tsinghua.edu.cn/f/1a0be6a660224dbfa28a/)  (See [TPVFormer](https://github.com/wzzheng/TPVFormer))
 <img src="./assets/demo3.gif" width="800px">
 
 ### [In the wild demo](https://cloud.tsinghua.edu.cn/f/021dd2105a3c4251add8/) (trained on nuScenes, tested on Beijing street):

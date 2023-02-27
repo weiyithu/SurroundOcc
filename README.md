@@ -26,7 +26,11 @@ Demos are a little bit large; please wait a moment to load them. If you cannot l
 Towards a more comprehensive and consistent scene reconstruction, in this paper, we propose a SurroundOcc method to predict the volumetric occupancy with multi-camera images. We first extract multi-scale features for each image and adopt spatial cross attention to lift them to the 3D volume space. Then we apply 3D convolutions to progressively upsample the volume features and impose supervision on multiple levels. To train the multi-camera 3D scene reconstruction model, we design a pipeline to generate dense occupancy ground truth with sparse LiDAR points. The generation pipeline only needs existed 3D detection and 3D semantic segmentation labels without extra human annotations. Specifically, we fuse multi-frame LiDAR points of dynamic objects and static scenes separately. Then we adopt Poisson Reconstruction to fill the holes and voxelize the mesh to get dense volumetric occupancy.
 
 ## Method 
+Method Pipeline
 <img src="./assets/pipeline.jpg" width="800px">
+
+Occupancy Ground Truth Generation Pipeline
+<img src="./assets/groundtruth_pipeline.jpg" width="800px">
 
 ## Todo
 Paper, code and dataset will be released in March.

@@ -6,7 +6,7 @@ Multi-camera 3D Occupancy Prediction for Autonomous Driving
 
 
 ## Demo  
-Demos are a little bit large; please wait a moment to load them. If you cannot load them, you can click the hyperlink of each demo for the raw video. 
+Demos are a little bit large; please wait a moment to load them. If you cannot load them, you can click the hyperlink of each demo for the full-resolution raw video. 
 
 ### [Occupancy prediction:](https://cloud.tsinghua.edu.cn/f/5dd268c93e36474d8f64/)
 

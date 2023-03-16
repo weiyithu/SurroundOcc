@@ -15,8 +15,8 @@ Demos are a little bit large; please wait a moment to load them. If you cannot l
 ### [Occupancy prediction:](https://cloud.tsinghua.edu.cn/f/5dd268c93e36474d8f64/)
 
 <p align='center'>
-<img src="./assets/demo1.gif" width="640px">
-<img src="./assets/bar.jpg" width="640px">
+<img src="./assets/demo1.gif" width="720px">
+<img src="./assets/bar.jpg" width="720px">
 </p>
 
 ### [Generated dense occupancy labels:](https://cloud.tsinghua.edu.cn/f/55d79fa1b5fc4fcd9308/)

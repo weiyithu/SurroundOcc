@@ -386,16 +386,15 @@ def main(nusc, val_list, indice, nuscenesyaml, args, config):
         scene_points = scene_points[mask]
 
         ################## get mesh via Possion Surface Reconstruction ##############
-        if args.to_mesh:
-            point_cloud_original = o3d.geometry.PointCloud()
-            with_normal2 = o3d.geometry.PointCloud()
-            point_cloud_original.points = o3d.utility.Vector3dVector(scene_points[:, :3])
-            with_normal = preprocess(point_cloud_original, config)
-            with_normal2.points = with_normal.points
-            with_normal2.normals = with_normal.normals
-            mesh, _ = create_mesh_from_map(None, config['depth'], config['n_threads'],
-                                           config['min_density'], with_normal2)
-            scene_points = np.asarray(mesh.vertices, dtype=float)
+        point_cloud_original = o3d.geometry.PointCloud()
+        with_normal2 = o3d.geometry.PointCloud()
+        point_cloud_original.points = o3d.utility.Vector3dVector(scene_points[:, :3])
+        with_normal = preprocess(point_cloud_original, config)
+        with_normal2.points = with_normal.points
+        with_normal2.normals = with_normal.normals
+        mesh, _ = create_mesh_from_map(None, config['depth'], config['n_threads'],
+                                       config['min_density'], with_normal2)
+        scene_points = np.asarray(mesh.vertices, dtype=float)
 
         ################## remain points with a spatial range ##############
         mask = (np.abs(scene_points[:, 0]) < 50.0) & (np.abs(scene_points[:, 1]) < 50.0) \
@@ -470,7 +469,6 @@ if __name__ == '__main__':
 
     parse.add_argument('--dataset', type=str, default='nuscenes')
     parse.add_argument('--config_path', type=str, default='config.yaml')
-    parse.add_argument('--to_mesh', type=bool, default=True)
     parse.add_argument('--split', type=str, default='train')
     parse.add_argument('--save_path', type=str, default='./data/GT_occupancy/')
     parse.add_argument('--start', type=int, default=0)

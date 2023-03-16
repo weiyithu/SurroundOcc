@@ -1,5 +1,5 @@
 # SurroundOcc
-### [Paper](https://arxiv.org/abs/) | [Video](https://cloud.tsinghua.edu.cn/d/97b74c039b8d4fd48830/) | [Data](https://cloud.tsinghua.edu.cn/d/8dcb547238144d08a0bb/)
+### [Paper](https://github.com/weiyithu/weiyithu.github.io/blob/main/SurroundOcc/pdf/SurroundOcc.pdf) | [Video](https://cloud.tsinghua.edu.cn/d/97b74c039b8d4fd48830/) | [Data](https://cloud.tsinghua.edu.cn/d/8dcb547238144d08a0bb/)
 <br/>
 
 > SurroundOcc: Multi-Camera 3D Occupancy Prediction for Autonomous Driving  
@@ -8,9 +8,6 @@
 ## News
 - [2022/3/17]: Initial code and paper release. 
 - [2022/2/27]: Demo release.
-
-## Introduction
-Towards a more comprehensive and consistent scene reconstruction, in this paper, we propose a SurroundOcc method to predict the volumetric occupancy with multi-camera images. We first extract multi-scale features for each image and adopt spatial cross attention to lift them to the 3D volume space. Then we apply 3D convolutions to progressively upsample the volume features and impose supervision on multiple levels. To train the multi-camera 3D scene reconstruction model, we design a pipeline to generate dense occupancy ground truth with sparse LiDAR points. The generation pipeline only needs existed 3D detection and 3D semantic segmentation labels without extra human annotations. Specifically, we fuse multi-frame LiDAR points of dynamic objects and static scenes separately. Then we adopt Poisson Reconstruction to fill the holes and voxelize the mesh to get dense volumetric occupancy.
 
 ## Demo  
 Demos are a little bit large; please wait a moment to load them. If you cannot load them or feel them blurry, you can click the hyperlink of each demo for the full-resolution raw video. 
@@ -37,6 +34,8 @@ Demos are a little bit large; please wait a moment to load them. If you cannot l
 <img src="./assets/demo4.gif" width="720px">
 </p>
 
+## Introduction
+Towards a more comprehensive and consistent scene reconstruction, in this paper, we propose a SurroundOcc method to predict the volumetric occupancy with multi-camera images. We first extract multi-scale features for each image and adopt spatial cross attention to lift them to the 3D volume space. Then we apply 3D convolutions to progressively upsample the volume features and impose supervision on multiple levels. To train the multi-camera 3D scene reconstruction model, we design a pipeline to generate dense occupancy ground truth with sparse LiDAR points. The generation pipeline only needs existed 3D detection and 3D semantic segmentation labels without extra human annotations. Specifically, we fuse multi-frame LiDAR points of dynamic objects and static scenes separately. Then we adopt Poisson Reconstruction to fill the holes and voxelize the mesh to get dense volumetric occupancy.
 
 ## Method 
 
@@ -57,7 +56,7 @@ Occupancy Ground Truth Generation Pipeline:
 - [Prepare Dataset](docs/data.md)
 - [Run and Eval](docs/run.md)
 
-You can download our pretrained model for [3D semantic occupancy prediction]() and 3D scene reconstruction tasks. The difference is whether use semantic labels to train the model. The models are trained on 8 RTX 3090s with about 2.5 days.  
+You can download our pretrained model for [3D semantic occupancy prediction]() and [3D scene reconstruction tasks](). The difference is whether use semantic labels to train the model. The models are trained on 8 RTX 3090s with about 2.5 days.  
 
 ## Related Work
 Welcome to see another our lab's work [TPVFormer](https://github.com/wzzheng/TPVFormer).

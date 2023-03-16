@@ -29,3 +29,26 @@ SurroundOcc
 │   ├── nuscenes_infos_val.pkl
 
 ```
+
+***4. (Optional) We also provide the code to generate occupancy on nuScenes, which needs LiDAR point semantic labels [HERE](https://www.nuscenes.org/download). Folder structure:**
+```
+SurroundOcc
+├── data/
+│   ├── nuscenes/
+│   │   ├── maps/
+│   │   ├── samples/
+│   │   ├── sweeps/
+│   │   ├── v1.0-test/
+│   │   ├── v1.0-trainval/
+|   |   ├── lidarseg
+|   |   |   ├── v1.0-test
+|   |   |   ├── v1.0-trainval
+|   |   |   ├── v1.0-mini
+```
+
+You can generate train/val split of nuScenes from 850 sequences. 
+
+```
+cd $Home/tools/generate_occupancy_nuscenes
+python generate_occupancy_nuscenes.py --config_path ./config.yaml --label_mapping ./nuscenes.yaml --split [train/val] --save_path [your/save/path] 
+```

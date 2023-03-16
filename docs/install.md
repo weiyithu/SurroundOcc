@@ -44,6 +44,14 @@ pip install open3d-python
 
 **8. Install Chamfer Distance.**
 ```shell
-cd $HOME/extensions/chamfer_dist
+cd SurroundOcc/extensions/chamfer_dist
 python setup.py install --user
+```
+
+**9. Prepare pretrained models.**
+```shell
+cd SurroundOcc 
+mkdir ckpts
+
+cd ckpts & wget https://github.com/zhiqi-li/storage/releases/download/v1.0/r101_dcn_fcos3d_pretrain.pth
 ```

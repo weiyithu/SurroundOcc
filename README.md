@@ -58,5 +58,8 @@ Occupancy Ground Truth Generation Pipeline:
 
 You can download our pretrained model for [3D semantic occupancy prediction]() and [3D scene reconstruction tasks](). The difference is whether use semantic labels to train the model. The models are trained on 8 RTX 3090s with about 2.5 days.  
 
-## Related Work
-Welcome to see another our lab's work [TPVFormer](https://github.com/wzzheng/TPVFormer).
+## Acknowledgement
+Many thanks to these excellent projects:
+- [BEVFormer](https://github.com/fundamentalvision/BEVFormer)
+- [TPVFormer](https://github.com/wzzheng/TPVFormer)
+- [MonoScene](https://github.com/astra-vision/MonoScene)

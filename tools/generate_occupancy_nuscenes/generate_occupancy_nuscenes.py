@@ -109,27 +109,20 @@ def nn_correspondance(verts1, verts2):
 def lidar_to_world_to_lidar(pc,lidar_calibrated_sensor,lidar_ego_pose,
     cam_calibrated_sensor,
     cam_ego_pose):
-    # First step: transform the pointcloud to the ego vehicle
-    # frame for the timestamp of the sweep.
 
     pc = LidarPointCloud(pc.T)
     pc.rotate(Quaternion(lidar_calibrated_sensor['rotation']).rotation_matrix)
     pc.translate(np.array(lidar_calibrated_sensor['translation']))
 
-    # Second step: transform from ego to the global frame.
     pc.rotate(Quaternion(lidar_ego_pose['rotation']).rotation_matrix)
     pc.translate(np.array(lidar_ego_pose['translation']))
 
-    # Third step: transform from global into the ego vehicle
-    # frame for the timestamp of the image.
     pc.translate(-np.array(cam_ego_pose['translation']))
     pc.rotate(Quaternion(cam_ego_pose['rotation']).rotation_matrix.T)
 
-    # Fourth step: transform from ego into the camera.
     pc.translate(-np.array(cam_calibrated_sensor['translation']))
     pc.rotate(Quaternion(cam_calibrated_sensor['rotation']).rotation_matrix.T)
 
-    # pdb.set_trace()
     return pc
 
 
@@ -410,7 +403,6 @@ def main(nusc, val_list, indice, nuscenesyaml, args, config):
         scene_points = scene_points[mask]
 
         ################## convert points to voxels ##############
-
         pcd_np = scene_points
         pcd_np[:, 0] = (pcd_np[:, 0] - pc_range[0]) / voxel_size
         pcd_np[:, 1] = (pcd_np[:, 1] - pc_range[1]) / voxel_size

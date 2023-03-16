@@ -1,5 +1,5 @@
 # SurroundOcc
-### [Paper](https://github.com/weiyithu/weiyithu.github.io/blob/main/SurroundOcc/pdf/SurroundOcc.pdf) | [Video](https://cloud.tsinghua.edu.cn/d/97b74c039b8d4fd48830/) | [Data](https://cloud.tsinghua.edu.cn/d/8dcb547238144d08a0bb/)
+### [Paper](https://cloud.tsinghua.edu.cn/f/71c810a4fca64aacae22/?dl=1) | [Video](https://cloud.tsinghua.edu.cn/d/97b74c039b8d4fd48830/) | [Data](https://cloud.tsinghua.edu.cn/d/8dcb547238144d08a0bb/)
 <br/>
 
 > SurroundOcc: Multi-Camera 3D Occupancy Prediction for Autonomous Driving  

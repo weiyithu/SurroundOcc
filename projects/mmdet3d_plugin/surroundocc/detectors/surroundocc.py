@@ -21,6 +21,7 @@ from projects.mmdet3d_plugin.datasets.evaluation_metrics import evaluation_recon
 from sklearn.metrics import confusion_matrix as CM
 import time, yaml, os
 import torch.nn as nn
+import pdb
 
 
 @DETECTORS.register_module()
@@ -42,6 +43,7 @@ class SurroundOcc(MVXTwoStageDetector):
                  test_cfg=None,
                  pretrained=None,
                  use_semantic=True,
+                 is_vis=False,
                  version='v1',
                  ):
 
@@ -57,13 +59,7 @@ class SurroundOcc(MVXTwoStageDetector):
         self.fp16_enabled = False
 
         self.use_semantic = use_semantic
-        
-        self.cm = 0
-        self.cd = 0
-        self.count = 0
-        self.lidar_tokens = []
-
-        self.class_num = 17
+        self.is_vis = is_vis
                   
 
 
@@ -164,22 +160,19 @@ class SurroundOcc(MVXTwoStageDetector):
         pred_occ = output['occ_preds']
         if type(pred_occ) == list:
             pred_occ = pred_occ[-1]
+        
+        if self.is_vis:
+            self.generate_output(pred_occ, img_metas)
+            return pred_occ.shape[0]
 
         if self.use_semantic:
             class_num = pred_occ.shape[1]
             _, pred_occ = torch.max(torch.softmax(pred_occ, dim=1), dim=1)
             eval_results = evaluation_semantic(pred_occ, gt_occ, img_metas[0], class_num)
-            self.cm += eval_results.sum(0)
-            mean_ious = self.cm[:, 0] / (self.cm[:, 1] + self.cm[:, 2] - self.cm[:, 0])
-            print(mean_ious, np.mean(np.array(mean_ious)[1:]))
 
         else:
             pred_occ = torch.sigmoid(pred_occ[:, 0])
             eval_results = evaluation_reconstruction(pred_occ, gt_occ, img_metas[0])
-            if not np.isnan(eval_results.sum()):
-                self.cd += eval_results.sum(0)
-                self.count += len(eval_results)
-            print(self.cd / self.count, self.count)
         return {'evaluation': eval_results}
         
 
@@ -200,6 +193,62 @@ class SurroundOcc(MVXTwoStageDetector):
 
         return output
 
-
-
-
+    def generate_output(self, pred_occ, img_metas):
+        import open3d as o3d
+        
+        color_map = np.array(
+                [
+                    [0, 0, 0, 255],
+                    [255, 120, 50, 255],  # barrier              orangey
+                    [255, 192, 203, 255],  # bicycle              pink
+                    [255, 255, 0, 255],  # bus                  yellow
+                    [0, 150, 245, 255],  # car                  blue
+                    [0, 255, 255, 255],  # construction_vehicle cyan
+                    [200, 180, 0, 255],  # motorcycle           dark orange
+                    [255, 0, 0, 255],  # pedestrian           red
+                    [255, 240, 150, 255],  # traffic_cone         light yellow
+                    [135, 60, 0, 255],  # trailer              brown
+                    [160, 32, 240, 255],  # truck                purple
+                    [255, 0, 255, 255],  # driveable_surface    dark pink
+                    # [175,   0,  75, 255],       # other_flat           dark red
+                    [139, 137, 137, 255],
+                    [75, 0, 75, 255],  # sidewalk             dard purple
+                    [150, 240, 80, 255],  # terrain              light green
+                    [230, 230, 250, 255],  # manmade              white
+                    [0, 175, 0, 255],  # vegetation           green
+                ]
+            )
+        
+        if self.use_semantic:
+            _, voxel = torch.max(torch.softmax(pred_occ, dim=1), dim=1)
+        else:
+            voxel = torch.sigmoid(pred_occ[:, 0])
+        
+        for i in range(voxel.shape[0]):
+            x = torch.linspace(0, voxel[i].shape[0] - 1, voxel[i].shape[0])
+            y = torch.linspace(0, voxel[i].shape[1] - 1, voxel[i].shape[1])
+            z = torch.linspace(0, voxel[i].shape[2] - 1, voxel[i].shape[2])
+            X, Y, Z = torch.meshgrid(x, y, z)
+            vv = torch.stack([X, Y, Z], dim=-1).to(voxel.device)
+        
+            vertices = vv[voxel[i] > 0.5]
+            vertices[:, 0] = (vertices[:, 0] + 0.5) * (img_metas[i]['pc_range'][3] - img_metas[i]['pc_range'][0]) /  img_metas[i]['occ_size'][0]  + img_metas[i]['pc_range'][0]
+            vertices[:, 1] = (vertices[:, 1] + 0.5) * (img_metas[i]['pc_range'][4] - img_metas[i]['pc_range'][1]) /  img_metas[i]['occ_size'][1]  + img_metas[i]['pc_range'][1]
+            vertices[:, 2] = (vertices[:, 2] + 0.5) * (img_metas[i]['pc_range'][5] - img_metas[i]['pc_range'][2]) /  img_metas[i]['occ_size'][2]  + img_metas[i]['pc_range'][2]
+            
+            vertices = vertices.cpu().numpy()
+    
+            pcd = o3d.geometry.PointCloud()
+            pcd.points = o3d.utility.Vector3dVector(vertices)
+            if self.use_semantic:
+                semantics = voxel[i][voxel[i] > 0].cpu().numpy()
+                color = color_map[semantics] / 255.0
+                pcd.colors = o3d.utility.Vector3dVector(color[..., :3])
+                vertices = np.concatenate([vertices, semantics[:, None]], axis=-1)
+    
+            o3d.io.write_point_cloud(img_metas[i]['occ_path'].replace('npy', 'ply'), pcd)
+            np.save(img_metas[i]['occ_path'], vertices)
+    
+    
+    
+    

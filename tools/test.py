@@ -56,6 +56,10 @@ def parse_args():
         action='store_true',
         help='whether to use gpu to collect results.')
     parser.add_argument(
+        '--is_vis',
+        action='store_true',
+        help='whether to generate output without evaluation.')
+    parser.add_argument(
         '--tmpdir',
         help='tmp directory used for collecting results from multiple '
         'workers, available when gpu-collect is not specified')
@@ -197,7 +201,6 @@ def main():
         dist=distributed,
         shuffle=False,
         nonshuffler_sampler=cfg.data.nonshuffler_sampler,
-        #shuffler_sampler=cfg.data.shuffler_sampler,
     )
 
     # build the model and load checkpoint
@@ -232,7 +235,10 @@ def main():
             device_ids=[torch.cuda.current_device()],
             broadcast_buffers=False)
         outputs = custom_multi_gpu_test(model, data_loader, args.tmpdir,
-                                        args.gpu_collect)
+                                        args.gpu_collect, args.is_vis)
+    
+    if args.is_vis:
+        return
 
     rank, _ = get_dist_info()
     if rank == 0:

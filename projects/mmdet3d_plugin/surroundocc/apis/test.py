@@ -79,6 +79,9 @@ def custom_multi_gpu_test(model, data_loader, tmpdir=None, gpu_collect=False, is
                 if 'evaluation' in result.keys():
                     occ_results.extend(result['evaluation'])
                     batch_size = len(result['evaluation'])
+            
+            if is_vis:
+                batch_size = result
 
         if rank == 0:
             

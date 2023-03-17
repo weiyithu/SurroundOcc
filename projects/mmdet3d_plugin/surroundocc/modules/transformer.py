@@ -90,9 +90,6 @@ class PerceptionTransformer(BaseModule):
             volume_w,
             volume_z,
             **kwargs):
-        """
-        obtain bev features.
-        """
 
         bs = mlvl_feats[0].size(0)
         volume_queries = volume_queries.unsqueeze(1).repeat(1, bs, 1)

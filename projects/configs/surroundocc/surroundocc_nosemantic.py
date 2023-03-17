@@ -1,11 +1,3 @@
-# BEvFormer-small consumes at lease 10500M GPU memory
-# compared to bevformer_base, bevformer_small has
-# smaller BEV: 200*200 -> 150*150
-# less encoder layers: 6 -> 3
-# smaller input size: 1600*900 -> (1600*900)*0.8
-# multi-scale feautres -> single scale features (C5)
-# with_cp of backbone = True
-
 _base_ = [
     '../datasets/custom_nus-3d.py',
     '../_base_/default_runtime.py'

@@ -65,7 +65,6 @@ Many thanks to these excellent projects:
 Related Projects:
 - [TPVFormer](https://github.com/wzzheng/TPVFormer)
 - [OpenOccupancy](https://github.com/JeffWang987/OpenOccupancy)
-- [VoxFormer](https://github.com/NVlabs/VoxFormer)
 
 ## Bibtex
 If this work is helpful for your research, please consider citing the following BibTeX entry.

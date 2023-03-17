@@ -1,5 +1,5 @@
 # SurroundOcc
-### [Paper](https://cloud.tsinghua.edu.cn/f/71c810a4fca64aacae22/?dl=1) | [Video](https://cloud.tsinghua.edu.cn/d/97b74c039b8d4fd48830/) | [Data](https://cloud.tsinghua.edu.cn/d/8dcb547238144d08a0bb/)
+### [Paper](https://arxiv.org/abs/2303.09551) | [Video](https://cloud.tsinghua.edu.cn/d/97b74c039b8d4fd48830/) | [Data](https://cloud.tsinghua.edu.cn/d/8dcb547238144d08a0bb/)
 <br/>
 
 > SurroundOcc: Multi-Camera 3D Occupancy Prediction for Autonomous Driving  
@@ -51,7 +51,7 @@ Occupancy Ground Truth Generation Pipeline:
 <img src="./assets/groundtruth_pipeline.jpg" width="800px">
 </p>
 
-# Getting Started
+## Getting Started
 - [Installation](docs/install.md) 
 - [Prepare Dataset](docs/data.md)
 - [Train and Eval](docs/run.md)
@@ -66,4 +66,16 @@ Many thanks to these excellent projects:
 Related Projects:
 - [TPVFormer](https://github.com/wzzheng/TPVFormer)
 - [OpenOccupancy](https://github.com/JeffWang987/OpenOccupancy)
+
+## Bibtex
+If this work is helpful for your research, please consider citing the following BibTeX entry.
+
+```
+@article{wei2023surroundocc, 
+      title={SurroundOcc: Multi-Camera 3D Occupancy Prediction for Autonomous Driving}, 
+      author={Yi Wei and Linqing Zhao and Wenzhao Zheng and Zheng Zhu and Jie Zhou and Jiwen Lu},
+      journal={arXiv preprint arXiv:2303.09551},
+      year={2023}
+}
+```
 

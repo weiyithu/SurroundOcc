@@ -54,12 +54,16 @@ Occupancy Ground Truth Generation Pipeline:
 # Getting Started
 - [Installation](docs/install.md) 
 - [Prepare Dataset](docs/data.md)
-- [Run and Eval](docs/run.md)
+- [Train and Eval](docs/run.md)
 
 You can download our pretrained model for [3D semantic occupancy prediction](https://cloud.tsinghua.edu.cn/f/7b2887a8fe3f472c8566/?dl=1) and [3D scene reconstruction tasks](https://cloud.tsinghua.edu.cn/f/ca595f31c8bd4ec49cf7/?dl=1). The difference is whether use semantic labels to train the model. The models are trained on 8 RTX 3090s with about 2.5 days.  
 
 ## Acknowledgement
 Many thanks to these excellent projects:
 - [BEVFormer](https://github.com/fundamentalvision/BEVFormer)
-- [TPVFormer](https://github.com/wzzheng/TPVFormer)
 - [MonoScene](https://github.com/astra-vision/MonoScene)
+
+Related Projects:
+- [TPVFormer](https://github.com/wzzheng/TPVFormer)
+- [OpenOccupancy](https://github.com/JeffWang987/OpenOccupancy)
+

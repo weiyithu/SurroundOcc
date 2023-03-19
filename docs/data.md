@@ -81,9 +81,9 @@ your_own_data_folder/
 │   ├── lidar_ego_pose1.npy
 │   ├── ...
 ```
-You can generate occupancy labels with or without semantics (via acitivate --with semantic), and you can choose whether (via acitivate --with to_mesh) to use Poisson reconstruction (will be generated faster).
+You can generate occupancy labels with or without semantics (via acitivating --with semantic), and you can choose whether (via acitivating --with to_mesh) to use Poisson reconstruction (will be generated faster).
 
-Run this to generate dense occupancy labels with your own data:
+Here we give an example to show how to generate dense occupancy labels with your own data:
 ```
 cd $Home
 python tools/generate_occupancy_with_own_data/process_your_own_data.py --to_mesh --with_semantic

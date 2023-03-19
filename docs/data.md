@@ -56,6 +56,7 @@ python generate_occupancy_nuscenes.py --config_path ./config.yaml --label_mappin
 ***5. (Optional) You can also generate dense occupancy labels with your own data! We provide a highly extensible code to achieve [this](https://github.com/weiyithu/SurroundOcc/blob/main/tools/generate_occupancy_with_own_data/process_your_own_data.py)**
 
 **You need to prepare your data like this:**
+
 your_own_data_folder/
 ├── pc/
 │   ├── pc0.npy

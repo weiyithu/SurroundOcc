@@ -56,7 +56,7 @@ python generate_occupancy_nuscenes.py --config_path ./config.yaml --label_mappin
 ***5. (Optional) You can also generate dense occupancy labels with your own data! We provide a highly extensible code to achieve [this](https://github.com/weiyithu/SurroundOcc/blob/main/tools/generate_occupancy_with_own_data/process_your_own_data.py)**
 
 **You need to prepare your data like this:**
-
+```
 your_own_data_folder/
 ├── pc/
 │   ├── pc0.npy
@@ -80,7 +80,7 @@ your_own_data_folder/
 │   ├── lidar_ego_pose0.npy
 │   ├── lidar_ego_pose1.npy
 │   ├── ...
-
+```
 You can generate occupancy labels with or without semantics (via acitivate --with semantic), and you can choose whether (via acitivate --with to_mesh) to use Poisson reconstruction (will be generated faster).
 
 Run this to generate dense occupancy labels with your own data:

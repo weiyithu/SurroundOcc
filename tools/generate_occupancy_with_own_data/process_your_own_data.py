@@ -1,25 +1,13 @@
 import os
-import sys
-import pdb
-import time
 import yaml
-import torch
 import chamfer
 import mmcv
 import numpy as np
-from nuscenes.nuscenes import NuScenes
-from nuscenes.utils import splits
-from tqdm import tqdm
 from nuscenes.utils.data_classes import LidarPointCloud
-from nuscenes.utils.geometry_utils import view_points
 from pyquaternion import Quaternion
-from mmdet3d.core.bbox import box_np_ops
 from mmcv.ops.points_in_boxes import (points_in_boxes_all, points_in_boxes_cpu,
                                       points_in_boxes_part)
 from scipy.spatial.transform import Rotation
-
-import open3d
-import open3d as o3d
 from copy import deepcopy
 
 

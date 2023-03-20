@@ -2,6 +2,7 @@ import os
 import yaml
 import chamfer
 import mmcv
+import open3d as o3d
 import numpy as np
 from nuscenes.utils.data_classes import LidarPointCloud
 from pyquaternion import Quaternion

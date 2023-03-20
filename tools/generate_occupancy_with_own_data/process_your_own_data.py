@@ -118,7 +118,6 @@ if __name__ == '__main__':
     from argparse import ArgumentParser
     parse = ArgumentParser()
 
-    parse.add_argument('--dataset', type=str, default='nuscenes')
     parse.add_argument('--config_path', type=str, default='config.yaml')
     parse.add_argument('--len_sequence', type=int, default=10)    
     parse.add_argument('--to_mesh', action='store_true', default=False)

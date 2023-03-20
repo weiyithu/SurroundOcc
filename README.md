@@ -6,6 +6,7 @@
 > [Yi Wei*](https://weiyithu.github.io/), [Linqing Zhao*](https://github.com/lqzhao), [Wenzhao Zheng](https://scholar.google.com/citations?user=LdK9scgAAAAJ&hl=en), [Zheng Zhu](http://www.zhengzhu.net/), [Jiwen Lu](http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/), [Jie Zhou](https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1)  
 
 ## News
+- [2022/3/21]: Support for private data. You can try both occupancy prediction method and ground truth generation pipeline on your own data. 
 - [2022/3/17]: Initial code and paper release. 
 - [2022/2/27]: Demo release.
 
@@ -50,9 +51,44 @@ Occupancy Ground Truth Generation Pipeline:
 You can download our pretrained model for [3D semantic occupancy prediction](https://cloud.tsinghua.edu.cn/f/7b2887a8fe3f472c8566/?dl=1) and [3D scene reconstruction tasks](https://cloud.tsinghua.edu.cn/f/ca595f31c8bd4ec49cf7/?dl=1). The difference is whether use semantic labels to train the model. The models are trained on 8 RTX 3090s with about 2.5 days.  
 
 ## Try your own data
-You can try our nuScenes [pretrained model](https://cloud.tsinghua.edu.cn/f/7b2887a8fe3f472c8566/?dl=1) on your own data!  Here we give a template [pickle file](https://cloud.tsinghua.edu.cn/f/5c710efd78854c529705/?dl=1). You should place it in ./data and change the corresponding infos. Specifically, you need to change the 'lidar2img', 'intrinsic' and 'data_path' as the extrinsic matrix, intrinsic matrix and path of your multi-camera images. Note that the order of frames should be same to their timestamps. 'occ_path' in this pickle file indicates the save path and you will get raw results (.npy) and point coulds (.ply) for further visualization:
+### Occupancy prediction
+You can try our nuScenes [pretrained model](https://cloud.tsinghua.edu.cn/f/7b2887a8fe3f472c8566/?dl=1) on your own data!  Here we give a template in-the-wild [data](https://cloud.tsinghua.edu.cn/f/48bd4b3e88f64ed7b76b/?dl=1) and [pickle file](https://cloud.tsinghua.edu.cn/f/5c710efd78854c529705/?dl=1). You should place it in ./data and change the corresponding infos. Specifically, you need to change the 'lidar2img', 'intrinsic' and 'data_path' as the extrinsic matrix, intrinsic matrix and path of your multi-camera images. Note that the order of frames should be same to their timestamps. 'occ_path' in this pickle file indicates the save path and you will get raw results (.npy) and point coulds (.ply) for further visualization:
 ```
 ./tools/dist_inference.sh ./projects/configs/surroundocc/surroundocc_inference.py ./path/to/ckpts.pth 8
+```
+
+### Ground truth generation
+You can also generate dense occupancy labels with your own data! We provide a highly extensible code to achieve [this](https://github.com/weiyithu/SurroundOcc/blob/main/tools/generate_occupancy_with_own_data/process_your_own_data.py). We provide an example [sequence](https://cloud.tsinghua.edu.cn/f/94fea6c8be4448168667/?dl=1) and yoou need to prepare your data like this:
+
+```
+your_own_data_folder/
+├── pc/
+│   ├── pc0.npy
+│   ├── pc1.npy
+│   ├── ...
+├── bbox/
+│   ├── bbox0.npy (bounding box of the object)
+│   ├── bbox1.npy
+│   ├── ...
+│   ├── object_category0.npy (semantic category of the object)
+│   ├── object_category1.npy
+│   ├── ...
+│   ├── boxes_token0.npy (Unique bbox codes used to combine the same object in different frames)
+│   ├── boxes_token1.npy
+│   ├── ...
+├── calib/
+│   ├── lidar_calibrated_sensor0.npy
+│   ├── lidar_calibrated_sensor1.npy
+│   ├── ...
+├── pose/
+│   ├── lidar_ego_pose0.npy
+│   ├── lidar_ego_pose1.npy
+│   ├── ...
+```
+You can generate occupancy labels with or without semantics (via acitivating --with semantic). If your LiDAR is high-resolution, \eg RS128, LiVOX and M1, you can skip Poisson reconstruction step and the generation processe will be very fast!
+```
+cd $Home/tools/generate_occupancy_nuscenes
+python process_your_own_data.py --to_mesh --with_semantic --data_path $your_own_data_folder$ --len_sequence $frame number$
 ```
 
 

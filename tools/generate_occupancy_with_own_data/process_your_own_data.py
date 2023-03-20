@@ -1,6 +1,7 @@
 import os
 import yaml
 import chamfer
+import torch
 import mmcv
 import open3d as o3d
 import numpy as np
@@ -119,8 +120,9 @@ if __name__ == '__main__':
     from argparse import ArgumentParser
     parse = ArgumentParser()
 
+    parse.add_argument('--data_path', type=str, required=True)
     parse.add_argument('--config_path', type=str, default='config.yaml')
-    parse.add_argument('--len_sequence', type=int, default=10)    
+    parse.add_argument('--len_sequence', type=int, required=True)    
     parse.add_argument('--to_mesh', action='store_true', default=False)
     parse.add_argument('--with_semantic', action='store_true', default=False)
 
@@ -136,7 +138,7 @@ if __name__ == '__main__':
     occ_size = config['occ_size']
 
 
-    path = './tools/generate_occupancy_with_own_data/example/'
+    path = args.data_path
     pc_path = os.path.join(path,'pc/')
     pc_seman_path = os.path.join(path,'pc_seman/')
     bbox_path = os.path.join(path,'bbox/')

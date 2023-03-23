@@ -58,7 +58,7 @@ You can try our nuScenes [pretrained model](https://cloud.tsinghua.edu.cn/f/7b28
 ```
 
 ### Ground truth generation
-You can also generate dense occupancy labels with your own data! We provide a highly extensible code to achieve [this](https://github.com/weiyithu/SurroundOcc/blob/main/tools/generate_occupancy_with_own_data/process_your_own_data.py). We provide an example [sequence](https://cloud.tsinghua.edu.cn/f/94fea6c8be4448168667/?dl=1) and yoou need to prepare your data like this:
+You can also generate dense occupancy labels with your own data! We provide a highly extensible code to achieve [this](https://github.com/weiyithu/SurroundOcc/blob/main/tools/generate_occupancy_with_own_data/process_your_own_data.py). You need to prepare your data like this (Here is an example [sequence](https://cloud.tsinghua.edu.cn/f/94fea6c8be4448168667/?dl=1)):
 
 ```
 your_own_data_folder/
@@ -85,7 +85,7 @@ your_own_data_folder/
 │   ├── lidar_ego_pose1.npy
 │   ├── ...
 ```
-You can generate occupancy labels with or without semantics (via acitivating --with semantic). If your LiDAR is high-resolution, \eg RS128, LiVOX and M1, you can skip Poisson reconstruction step and the generation processe will be very fast!
+You can generate occupancy labels with or without semantics (via acitivating --with semantic). If your LiDAR is high-resolution, e.g. RS128, LiVOX and M1, you can skip Poisson reconstruction step and the generation processe will be very fast!
 ```
 cd $Home/tools/generate_occupancy_nuscenes
 python process_your_own_data.py --to_mesh --with_semantic --data_path $your_own_data_folder$ --len_sequence $frame number$

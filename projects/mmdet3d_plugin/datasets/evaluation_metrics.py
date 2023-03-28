@@ -58,15 +58,15 @@ def evaluation_semantic(pred_occ, gt_occ, img_metas, class_num):
         gt_i = gt_to_voxel(gt_i, img_metas)
         mask = (gt_i != 255)
         score = np.zeros((class_num, 3))
-        for i in range(class_num):
-            if i == 0: #class 0 for geometry IoU
-                score[i][0] += ((gt_i[mask] != 0) * (pred_i[mask] != 0)).sum()
-                score[i][1] += (gt_i[mask] != 0).sum()
-                score[i][2] += (pred_i[mask] != 0).sum()
+        for j in range(class_num):
+            if j == 0: #class 0 for geometry IoU
+                score[j][0] += ((gt_i[mask] != 0) * (pred_i[mask] != 0)).sum()
+                score[j][1] += (gt_i[mask] != 0).sum()
+                score[j][2] += (pred_i[mask] != 0).sum()
             else:
-                score[i][0] += ((gt_i[mask] == i) * (pred_i[mask] == i)).sum()
-                score[i][1] += (gt_i[mask] == i).sum()
-                score[i][2] += (pred_i[mask] == i).sum()
+                score[j][0] += ((gt_i[mask] == j) * (pred_i[mask] == j)).sum()
+                score[j][1] += (gt_i[mask] == j).sum()
+                score[j][2] += (pred_i[mask] == j).sum()
 
         results.append(score)
     return np.stack(results, axis=0)

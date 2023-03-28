@@ -85,7 +85,7 @@ your_own_data_folder/
 │   ├── lidar_ego_pose1.npy
 │   ├── ...
 ```
-You can generate occupancy labels with or without semantics (via acitivating --with semantic). If your LiDAR is high-resolution, \eg RS128, LiVOX and M1, you can skip Poisson reconstruction step and the generation processe will be very fast! You can change the point cloud range and voxel size in config.yaml.
+You can generate occupancy labels with or without semantics (via acitivating --with semantic). If your LiDAR is high-resolution, e.g. RS128, LiVOX and M1, you can skip Poisson reconstruction step and the generation processe will be very fast! You can change the point cloud range and voxel size in config.yaml.
 ```
 cd $Home/tools/generate_occupancy_nuscenes
 python process_your_own_data.py --to_mesh --with_semantic --data_path $your_own_data_folder$ --len_sequence $frame number$

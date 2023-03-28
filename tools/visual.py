@@ -1,4 +1,4 @@
-import os
+import os, sys
 import cv2, imageio
 import mayavi.mlab as mlab
 import numpy as np
@@ -36,7 +36,7 @@ colors = np.array(
 voxel_size = 0.5
 pc_range = [-50, -50,  -5, 50, 50, 3]
 
-visual_path = 'temp/pred.npy'
+visual_path = sys.argv[1]
 fov_voxels = np.load(visual_path)
 
 fov_voxels = fov_voxels[fov_voxels[..., 3] > 0]

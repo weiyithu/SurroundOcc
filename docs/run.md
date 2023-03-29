@@ -12,6 +12,7 @@ Eval SurroundOcc with 8 RTX3090 GPUs
 You can substitute surroundocc.py with surroundocc_nosemantic.py for 3D scene reconstruction task.
 
 Visualize occupancy predictions:
+
 First, you need to generate prediction results. Here we use whole validation set as an example.
 ```
 cp ./data/nuscenes_infos_val.pkl ./data/infos_inference.pkl

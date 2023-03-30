@@ -13,7 +13,7 @@ SurroundOcc
 
 **2. Download the generated [train](https://cloud.tsinghua.edu.cn/f/ebbed36c37b248149192/?dl=1)/[val](https://cloud.tsinghua.edu.cn/f/b3f169f4db034764bb87/?dl=1) pickle files and put them in data.**
 
-**3. Download our generated dense occupancy labels (resolution 200x200x16 with voxel size 0.5m) and put and unzip it in data. We will also provide full-resolution mesh data, which you can subsample it with different resolution.**
+**3. Download our generated dense occupancy labels (resolution 200x200x16 with voxel size 0.5m) and put and unzip it in data. We will also provide full-resolution mesh data, and you can subsample it with different resolution.**
 | resolution | Subset | Tsinghua Cloud| Size |
 | :---: | :---: | :---: | :---: |
 | 200x200x16 | train | [link](https://cloud.tsinghua.edu.cn/f/f021006560b54bc78349/?dl=1) | 4.3G |

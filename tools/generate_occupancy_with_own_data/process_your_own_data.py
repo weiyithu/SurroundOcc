@@ -1,7 +1,7 @@
 import os
 import yaml
-import chamfer
 import torch
+import chamfer
 import mmcv
 import open3d as o3d
 import numpy as np

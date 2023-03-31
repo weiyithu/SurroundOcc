@@ -353,6 +353,7 @@ if __name__ == '__main__':
 
         np.save(path + 'occupancy_gt{}.npy'.format(i), fov_voxels)
 
+
         if args.with_semantic:
             ################## remain points with a spatial range  ##############
             mask = (np.abs(scene_semantic_points[:, 0]) < 50.0) & (np.abs(scene_semantic_points[:, 1]) < 50.0) \
@@ -381,4 +382,4 @@ if __name__ == '__main__':
 
             np.save(path + 'occupancy_gt_with_semantic{}.npy'.format(i), dense_voxels_with_semantic)
             
-       i = i + 1
+        i = i + 1

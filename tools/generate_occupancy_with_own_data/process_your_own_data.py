@@ -380,3 +380,5 @@ if __name__ == '__main__':
             dense_voxels_with_semantic = np.floor(pcd_np).astype(np.int)
 
             np.save(path + 'occupancy_gt_with_semantic{}.npy'.format(i), dense_voxels_with_semantic)
+            
+       i = i + 1

@@ -207,11 +207,16 @@ def _fill_trainval_infos(nusc,
         pose_record = nusc.get('ego_pose', sd_rec['ego_pose_token'])
         lidar_path, boxes, _ = nusc.get_sample_data(lidar_token)
 
+        occ_path = lidar_path
+        occ_path = occ_path.replace('nuscenes', 'nuscenes_occ')
+        occ_path = occ_path.replace('LIDAR_TOP/', '')
+
         mmcv.check_file_exist(lidar_path)
         can_bus = _get_can_bus_info(nusc, nusc_can_bus, sample)
         ##
         info = {
             'lidar_path': lidar_path,
+            'occ_path': occ_path,
             'token': sample['token'],
             'prev': sample['prev'],
             'next': sample['next'],

@@ -125,6 +125,7 @@ if __name__ == '__main__':
     parse.add_argument('--len_sequence', type=int, required=True)    
     parse.add_argument('--to_mesh', action='store_true', default=False)
     parse.add_argument('--with_semantic', action='store_true', default=False)
+    parse.add_argument('--whole_scene_to_mesh', action='store_true', default=False)
 
 
     args=parse.parse_args()
@@ -245,6 +246,18 @@ if __name__ == '__main__':
         point_cloud = object_points_dict[key]
         object_points_vertice.append(point_cloud[:,:3])
     # print('object finish')
+    
+    if args.whole_scene_to_mesh:
+        point_cloud_original = o3d.geometry.PointCloud()
+        with_normal2 = o3d.geometry.PointCloud()
+        point_cloud_original.points = o3d.utility.Vector3dVector(lidar_pc[:, :3])
+        with_normal = preprocess(point_cloud_original, config)
+        with_normal2.points = with_normal.points
+        with_normal2.normals = with_normal.normals
+        mesh, _ = create_mesh_from_map(None, 11, config['n_threads'],
+                                       config['min_density'], with_normal2)
+        lidar_pc = np.asarray(mesh.vertices, dtype=float)
+        lidar_pc = np.concatenate((lidar_pc, np.ones_like(lidar_pc[:,0:1])),axis=1)
 
     i = 0
     while int(i) < 10000:  # Assuming the sequence does not have more than 10000 frames
@@ -310,7 +323,7 @@ if __name__ == '__main__':
                & (scene_points[:, 2] > -5.0) & (scene_points[:, 2] < 3.0)
         scene_points = scene_points[mask]
 
-        if args.to_mesh:
+        if args.to_mesh and not args.whole_scene_to_mesh:
             ################## get mesh via Possion Surface Reconstruction ##############
             point_cloud_original = o3d.geometry.PointCloud()
             with_normal2 = o3d.geometry.PointCloud()

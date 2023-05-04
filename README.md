@@ -90,7 +90,7 @@ You can generate occupancy labels with or without semantics (via acitivating --w
 cd $Home/tools/generate_occupancy_nuscenes
 python process_your_own_data.py --to_mesh --with_semantic --data_path $your_own_data_folder$ --len_sequence $frame number$
 ```
-You can use --whole_scene_to_mesh to generate a complete static scene at one time, then add the moving object point cloud, and finally divide it into small scenes.
+You can use --whole_scene_to_mesh to generate a complete static scene with all frames at one time, then add the moving object point cloud, and finally divide it into small scenes. In this way, we can accelerate the generation process and get denser but more uneven occupancy labels. 
 
 ## Acknowledgement
 Many thanks to these excellent projects:

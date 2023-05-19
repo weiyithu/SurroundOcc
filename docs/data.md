@@ -14,12 +14,12 @@ SurroundOcc
 **2. Download the generated [train](https://cloud.tsinghua.edu.cn/f/ebbed36c37b248149192/?dl=1)/[val](https://cloud.tsinghua.edu.cn/f/b3f169f4db034764bb87/?dl=1) pickle files and put them in data.**
 
 **3. Download our generated dense occupancy labels (resolution 200x200x16 with voxel size 0.5m) and put and unzip it in data. We will also provide full-resolution mesh data, and you can subsample it with different resolution.**
-| resolution | Subset | Tsinghua Cloud| Size |
+| resolution | Subset | Link | Size |
 | :---: | :---: | :---: | :---: |
 | 200x200x16 | train | [link](https://cloud.tsinghua.edu.cn/f/ef8357724574491d9ddb/?dl=1) | 3.2G |
 | 200x200x16 | val | [link](https://cloud.tsinghua.edu.cn/f/290276f4a4024896b733/?dl=1) | 627M |
-| mesh | train | comming soon | - |
-| mesh | val | comming soon | - |
+| mesh vertices| train | [link](https://share.weiyun.com/27act74z) | 170G |
+| mesh vertices| val | [link](https://share.weiyun.com/f0eRNE8t) | 34G |
 
 Please note that: <br/>
 1. the shape of each npy file is (n,4), where n is the number of non-empty occupancies. Four dimensions represent xyz and semantic label respectively. <br/>

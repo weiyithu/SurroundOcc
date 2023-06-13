@@ -7,9 +7,9 @@ conda create -n surroundocc python=3.7 -y
 conda activate surroundocc
 ```
 
-**2. Install PyTorch and torchvision (tested on torch==1.10.1 & cuda=11.3).**
+**2. Install PyTorch and torchvision (tested on torch==1.10.1 & cuda=11.1).**
 ```shell
-pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1
 ```
 
 **3. Install gcc>=5 in conda env.**

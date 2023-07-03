@@ -18,8 +18,8 @@ SurroundOcc
 | :---: | :---: | :---: | :---: |
 | 200x200x16 | train | [link](https://cloud.tsinghua.edu.cn/f/ef8357724574491d9ddb/?dl=1) | 3.2G |
 | 200x200x16 | val | [link](https://cloud.tsinghua.edu.cn/f/290276f4a4024896b733/?dl=1) | 627M |
-| mesh vertices| train | [link](https://share.weiyun.com/27act74z) | 170G |
-| mesh vertices| val | [link](https://share.weiyun.com/f0eRNE8t) | 34G |
+| mesh vertices| train | [link](https://share.weiyun.com/rQXh35ME) | 170G |
+| mesh vertices| val | [link](https://share.weiyun.com/Jdr5eFmZ) | 34G |
 
 Please note that: <br/>
 1. the shape of each npy file is (n,4), where n is the number of non-empty occupancies. Four dimensions represent xyz and semantic label respectively. <br/>

@@ -4,7 +4,7 @@
 #  Modified by Zhiqi Li
 # ---------------------------------------------
 from data_converter.create_gt_database import create_groundtruth_database
-from data_converter import nuscenes_converter_new as nuscenes_converter
+from data_converter import nuscenes_converter as nuscenes_converter
 from data_converter import lyft_converter as lyft_converter
 from data_converter import kitti_converter as kitti
 #from data_converter import indoor_converter as indoor

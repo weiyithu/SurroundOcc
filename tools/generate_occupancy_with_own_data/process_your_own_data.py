@@ -283,7 +283,7 @@ if __name__ == '__main__':
         locs = gt_bbox_3d[:,0:3]
         dims = gt_bbox_3d[:,3:6]
         rots = gt_bbox_3d[:,6:7]
-        gt_bbox_3d[:, 2] += dims[:, 2] / 2.
+        # gt_bbox_3d[:, 2] += dims[:, 2] / 2.
 
 
         ################## bbox placement ##############

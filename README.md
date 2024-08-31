@@ -6,11 +6,11 @@
 > [Yi Wei*](https://weiyithu.github.io/), [Linqing Zhao*](https://github.com/lqzhao), [Wenzhao Zheng](https://scholar.google.com/citations?user=LdK9scgAAAAJ&hl=en), [Zheng Zhu](http://www.zhengzhu.net/), [Jiwen Lu](http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/), [Jie Zhou](https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1)  
 
 ## News
-- [2022/7/14]: SurroundOcc is accepted to ICCV 2023! 
-- [2022/5/19]: We upload generated mesh vertices. You can downsample it and generate occupancy labels with arbitrary resolution.  
-- [2022/3/21]: Support for private data. You can try both occupancy prediction method and ground truth generation pipeline on your own data. 
-- [2022/3/17]: Initial code and paper release. 
-- [2022/2/27]: Demo release.
+- [2023/7/14]: SurroundOcc is accepted to ICCV 2023! 
+- [2023/5/19]: We upload generated mesh vertices. You can downsample it and generate occupancy labels with arbitrary resolution.  
+- [2023/3/21]: Support for private data. You can try both occupancy prediction method and ground truth generation pipeline on your own data. 
+- [2023/3/17]: Initial code and paper release. 
+- [2023/2/27]: Demo release.
 
 ## Demo  
 Demos are a little bit large; please wait a moment to load them. If you cannot load them or feel them blurry, you can click the hyperlink of each demo for the full-resolution raw video. Welcome to the home page for more demos and detailed introductions. 

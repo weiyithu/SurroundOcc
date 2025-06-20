@@ -11,13 +11,13 @@ SurroundOcc
 ```
 
 
-**2. Download the generated [train](https://cloud.tsinghua.edu.cn/f/ebbed36c37b248149192/?dl=1)/[val](https://cloud.tsinghua.edu.cn/f/b3f169f4db034764bb87/?dl=1) pickle files and put them in data.**
+**2. Download the generated [train](https://pan.baidu.com/s/1B3Ak4vyl0IC0NgqZ8sgXQQ?pwd=qrc9)/[val](https://pan.baidu.com/s/1vbDe1FtW-ThDv21KDjJ6Ig?pwd=e81b) pickle files and put them in data.**
 
 **3. Download our generated dense occupancy labels (resolution 200x200x16 with voxel size 0.5m) and put and unzip it in data. We will also provide full-resolution mesh data, and you can subsample it with different resolution.**
 | resolution | Subset | Link | Size |
 | :---: | :---: | :---: | :---: |
-| 200x200x16 | train | [link](https://cloud.tsinghua.edu.cn/f/ef8357724574491d9ddb/?dl=1) | 3.2G |
-| 200x200x16 | val | [link](https://cloud.tsinghua.edu.cn/f/290276f4a4024896b733/?dl=1) | 627M |
+| 200x200x16 | train | [link](https://pan.baidu.com/s/1vI6bwxnNSrfM5C2sZaa2kA?pwd=hxdy) | 3.2G |
+| 200x200x16 | val | [link](https://pan.baidu.com/s/1UgiGm-ftrA91QBuEgmauTQ?pwd=31y8) | 627M |
 | mesh vertices| train | [link](https://share.weiyun.com/rQXh35ME) | 170G |
 | mesh vertices| val | [link](https://share.weiyun.com/Jdr5eFmZ) | 34G |
 

@@ -1,11 +1,12 @@
 # SurroundOcc
-### [Project Page](https://weiyithu.github.io/SurroundOcc/) | [Paper](https://arxiv.org/abs/2303.09551) | [Video](https://cloud.tsinghua.edu.cn/d/97b74c039b8d4fd48830/) | [Data](https://cloud.tsinghua.edu.cn/d/8dcb547238144d08a0bb/)
+### [Project Page](https://weiyithu.github.io/SurroundOcc/) | [Paper](https://arxiv.org/abs/2303.09551) | [Video](https://pan.baidu.com/s/1ssNIE2YWmpuB0LSSsvHydg?pwd=wnit) | [Data](https://pan.baidu.com/s/1swouSVNwYqVRQC2x6jJmeA?pwd=afs2)
 <br/>
 
 > SurroundOcc: Multi-Camera 3D Occupancy Prediction for Autonomous Driving  
 > [Yi Wei*](https://weiyithu.github.io/), [Linqing Zhao*](https://github.com/lqzhao), [Wenzhao Zheng](https://scholar.google.com/citations?user=LdK9scgAAAAJ&hl=en), [Zheng Zhu](http://www.zhengzhu.net/), [Jiwen Lu](http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/), [Jie Zhou](https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1)  
 
 ## News
+- [2025/6/20]: Update data and model url 
 - [2023/7/14]: SurroundOcc is accepted to ICCV 2023! 
 - [2023/5/19]: We upload generated mesh vertices. You can downsample it and generate occupancy labels with arbitrary resolution.  
 - [2023/3/21]: Support for private data. You can try both occupancy prediction method and ground truth generation pipeline on your own data. 
@@ -15,14 +16,13 @@
 ## Demo  
 Demos are a little bit large; please wait a moment to load them. If you cannot load them or feel them blurry, you can click the hyperlink of each demo for the full-resolution raw video. Welcome to the home page for more demos and detailed introductions. 
 
-### [Occupancy prediction:](https://cloud.tsinghua.edu.cn/f/f7768f1f110c414297cc/)
-
+### [Occupancy prediction:]
 <p align='center'>
 <img src="./assets/demo1.gif" width="720px">
 <img src="./assets/bar.jpg" width="720px">
 </p>
 
-### [Generated dense occupancy labels:](https://cloud.tsinghua.edu.cn/f/65d91a4c891f447da731/)
+### [Generated dense occupancy labels:]
 <p align='center'>
 <img src="./assets/demo2.gif" width="720px">
 </p>
@@ -50,17 +50,17 @@ Occupancy Ground Truth Generation Pipeline:
 - [Prepare Dataset](docs/data.md)
 - [Train, Eval and Visualize](docs/run.md)
 
-You can download our pretrained model for [3D semantic occupancy prediction](https://cloud.tsinghua.edu.cn/f/7b2887a8fe3f472c8566/?dl=1) and [3D scene reconstruction tasks](https://cloud.tsinghua.edu.cn/f/ca595f31c8bd4ec49cf7/?dl=1). The difference is whether use semantic labels to train the model. The models are trained on 8 RTX 3090s with about 2.5 days.  
+You can download our pretrained model for [3D semantic occupancy prediction](https://pan.baidu.com/s/1179t83Z5wFNNnxnPeo6n1A?pwd=dmcq) and [3D scene reconstruction tasks](https://pan.baidu.com/s/1dnODqzzgs9rMUJnK0AEy2A?pwd=nvm9). The difference is whether use semantic labels to train the model. The models are trained on 8 RTX 3090s with about 2.5 days.  
 
 ## Try your own data
 ### Occupancy prediction
-You can try our nuScenes [pretrained model](https://cloud.tsinghua.edu.cn/f/7b2887a8fe3f472c8566/?dl=1) on your own data!  Here we give a template in-the-wild [data](https://cloud.tsinghua.edu.cn/f/48bd4b3e88f64ed7b76b/?dl=1) and [pickle file](https://cloud.tsinghua.edu.cn/f/5c710efd78854c529705/?dl=1). You should place it in ./data and change the corresponding infos. Specifically, you need to change the 'lidar2img', 'intrinsic' and 'data_path' as the extrinsic matrix, intrinsic matrix and path of your multi-camera images. Note that the order of frames should be same to their timestamps. 'occ_path' in this pickle file indicates the save path and you will get raw results (.npy) and point coulds (.ply) in './visual_dir' for further visualization. You can use meshlab to directly visualize .ply files. Or you can run tools/visual.py to visualize .npy files. 
+You can try our nuScenes [pretrained model](https://pan.baidu.com/s/1179t83Z5wFNNnxnPeo6n1A?pwd=dmcq) on your own data!  Here we give a template in-the-wild [data](https://pan.baidu.com/s/1QMVtXebLp_uq-6VYuAOXHw?pwd=2syd) and [pickle file](https://pan.baidu.com/s/1z4KVbO4_1LlYDBrWdeFO0A?pwd=2u77). You should place it in ./data and change the corresponding infos. Specifically, you need to change the 'lidar2img', 'intrinsic' and 'data_path' as the extrinsic matrix, intrinsic matrix and path of your multi-camera images. Note that the order of frames should be same to their timestamps. 'occ_path' in this pickle file indicates the save path and you will get raw results (.npy) and point coulds (.ply) in './visual_dir' for further visualization. You can use meshlab to directly visualize .ply files. Or you can run tools/visual.py to visualize .npy files. 
 ```
 ./tools/dist_inference.sh ./projects/configs/surroundocc/surroundocc_inference.py ./path/to/ckpts.pth 8
 ```
 
 ### Ground truth generation
-You can also generate dense occupancy labels with your own data! We provide a highly extensible code to achieve [this](https://github.com/weiyithu/SurroundOcc/blob/main/tools/generate_occupancy_with_own_data/process_your_own_data.py). We provide an example [sequence](https://cloud.tsinghua.edu.cn/f/94fea6c8be4448168667/?dl=1) and you need to prepare your data like this:
+You can also generate dense occupancy labels with your own data! We provide a highly extensible code to achieve [this](https://github.com/weiyithu/SurroundOcc/blob/main/tools/generate_occupancy_with_own_data/process_your_own_data.py). We provide an example [sequence](https://pan.baidu.com/s/1-O6h4LZ-azK1YzMidXI25w?pwd=bh1n) and you need to prepare your data like this:
 
 ```
 your_own_data_folder/

@@ -1,7 +1,7 @@
 # SurroundOcc
 ### [Project Page](https://weiyithu.github.io/SurroundOcc/) | [Paper](https://arxiv.org/abs/2303.09551) | [Video](https://pan.baidu.com/s/1ssNIE2YWmpuB0LSSsvHydg?pwd=wnit) | [Data](https://pan.baidu.com/s/1swouSVNwYqVRQC2x6jJmeA?pwd=afs2)
 <br/>
-
+ 
 > SurroundOcc: Multi-Camera 3D Occupancy Prediction for Autonomous Driving  
 > [Yi Wei*](https://weiyithu.github.io/), [Linqing Zhao*](https://github.com/lqzhao), [Wenzhao Zheng](https://scholar.google.com/citations?user=LdK9scgAAAAJ&hl=en), [Zheng Zhu](http://www.zhengzhu.net/), [Jiwen Lu](http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/), [Jie Zhou](https://scholar.google.com/citations?user=6a79aPwAAAAJ&hl=en&authuser=1)  
 
